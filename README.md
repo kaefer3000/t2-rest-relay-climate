@@ -36,19 +36,25 @@ Assumes the relay module connected to Tessel's port A, and the climate module to
 ### Access the root resource like:
 ```sh
 $ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/
+```
+yields:
+```turtle
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 
-<#t2> foaf:isPrimaryTopicOf <>;
+<#t2> 
     a sosa:Platform ;
-    sosa:hosts <climate/#module>, <relay/#module>.
+    sosa:hosts <climate/#module>, <relay/#module>;
+    foaf:isPrimaryTopicOf <>.
 
 ```
-Follow `ssn:hosts` links to the sensors and actuators, eg.
+Follow `ssn:hosts` links to the sensors and actuators, eg. the temperature sensor:
 
 ```sh
-$ curl -Haccept:text/turtle http://t2-rest-relay-ambient.lan/climate/temperature 
-
+$ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/climate/temperature 
+```
+yields:
+```turtle
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
@@ -64,7 +70,26 @@ $ curl -Haccept:text/turtle http://t2-rest-relay-ambient.lan/climate/temperature
         qudt:unit <http://qudt.org/vocab/unit/DEG_C>
     ] ;
     foaf:isPrimaryTopicOf <> .
+```
+Or one of the relays:
+```sh
+$ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/relay/1
+```
+yields:
+```turtle
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix saref: <https://w3id.org/saref#> .
 
+<#relay>
+    a saref:Switch ;
+    sosa:hasProperty <#state> .
+
+<#state>
+    a sosa:ActuatableProperty, sosa:ObservableProperty ;
+    rdf:value saref:Off ;
+    foaf:isPrimaryTopicOf <> .
 
 ```
 
