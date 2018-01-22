@@ -9,13 +9,13 @@ Describes the [Tessel 2](http://tessel.io/) using the following vocabularies:
 Assumes the relay module connected to Tessel's port A, and the climate module to port B.
 
 ## You can:
-Access the root resource like:
+### Access the root resource like:
 ````
 $ curl http://tessel-ip-or-hostname/
 ````
 Follow `ssn:hosts` links to the sensors and actuators.
 
-Turn on and off the relays:
+### Turn on and off the relays:
 ````
 $ curl -X PUT http://tessel-ip-or-hostname/relay/1 -Hcontent-type:text/turtle --data-binary " <http://tessel-ip-or-hostname/relay/1#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> <https://w3id.org/saref#Off> . "
 ````
