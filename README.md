@@ -49,7 +49,7 @@ yields:
 
 ```
 ### Explore what is there following `ssn:hosts` links:
-Find sensors and actuators
+Find sensors and actuators, for instance:
 
 ### Access the temperature sensor:
 
@@ -74,7 +74,7 @@ yields:
     ] ;
     foaf:isPrimaryTopicOf <> .
 ```
-Access one of the relays:
+### Access one of the relays:
 ```sh
 $ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/relay/1
 ```
