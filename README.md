@@ -33,7 +33,7 @@ Describes the [Tessel 2](http://tessel.io/) using the following vocabularies:
 Assumes the relay module connected to Tessel's port A, and the climate module to port B.
 
 ## You can:
-### Access the root resource like:
+### Access the root resource:
 ```sh
 $ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/
 ```
@@ -48,7 +48,10 @@ yields:
     foaf:isPrimaryTopicOf <>.
 
 ```
-Follow `ssn:hosts` links to the sensors and actuators, eg. the temperature sensor:
+### Explore what is there following `ssn:hosts` links:
+Find sensors and actuators
+
+### Access the temperature sensor:
 
 ```sh
 $ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/climate/temperature 
@@ -71,7 +74,7 @@ yields:
     ] ;
     foaf:isPrimaryTopicOf <> .
 ```
-Or one of the relays:
+Access one of the relays:
 ```sh
 $ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/relay/1
 ```
@@ -93,7 +96,7 @@ yields:
 
 ```
 
-### Turn on and off the relays:
+### Turn on and off a relays:
 ````
 $ curl -X PUT http://tessel-ip-or-hostname/relay/1 -Hcontent-type:text/turtle --data-binary " <http://tessel-ip-or-hostname/relay/1#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> <https://w3id.org/saref#Off> . "
 ````
