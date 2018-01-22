@@ -22,14 +22,14 @@ REST + Linked Data interface for a Tessel 2 with a [climate](https://tessel.io/m
     * Connect the Tessel to your Ethernet or WiFi, then give the Tessel a certain IP or hostname, or
     * Make the Tessel open a WiFi access point, eg. `t2 wifi -n t2-rest-relay-climate` (add security, and enable the access point), and connect to the access point
   * The Tessel
-    * Give the Tessel a name, eg. `t2 rename t2-rest-relay-climate`
+    * Give the Tessel a name, eg. `t2 rename t2-rest-relay-climate` (the name is used, eg. if the Tessel's access point does DNS resolution, see below)
 * Unplug the Tessel, give the Tessel USB power, and wait for it to boot.
 
 ## Implementation details
 Serves RDF in RDF/XML, Turtle, JSON-LD, ... as Linked Data on a REST interface.
 Built on the [Express](http://expressjs.com/) and [RDF-Ext](https://github.com/rdf-ext) frameworks.
 Describes the [Tessel 2](http://tessel.io/) using the following vocabularies:
-[SOSA/SSN](https://w3c.github.io/sdw/ssn/), [SAREF](http://ontology.tno.nl/saref/), [QUDT](http://qudt.org/), [FOAF](http://xmlns.com/foaf/).
+[SOSA/SSN](https://w3c.github.io/sdw/ssn/), [SAREF](http://ontology.tno.nl/saref/), [QUDT](http://qudt.org/), [FOAF](http://xmlns.com/foaf/) (see below).
 
 ## You can:
 ### Access the root resource:
