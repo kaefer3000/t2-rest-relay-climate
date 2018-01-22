@@ -32,6 +32,7 @@ Describes the [Tessel 2](http://tessel.io/) using the following vocabularies:
 [SOSA/SSN](https://w3c.github.io/sdw/ssn/), [SAREF](http://ontology.tno.nl/saref/), [QUDT](http://qudt.org/), [FOAF](http://xmlns.com/foaf/) (see below).
 
 ## You can:
+(The examples use `t2-rest-relay-climate.lan` as the Tessel's hostname)
 ### Access the root resource:
 ```sh
 $ curl -Haccept:text/turtle http://t2-rest-relay-climate.lan/
@@ -97,7 +98,7 @@ yields:
 
 ### Turn on and off a relay:
 ````
-$ curl -X PUT http://tessel-ip-or-hostname/relay/1 -Hcontent-type:text/turtle --data-binary " <http://tessel-ip-or-hostname/relay/1#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> <https://w3id.org/saref#Off> . "
+$ curl -X PUT http://t2-rest-relay-climate.lan/relay/1 -Hcontent-type:text/turtle --data-binary " <http://tessel-ip-or-hostname/relay/1#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> <https://w3id.org/saref#Off> . "
 ````
 
 ## Status
