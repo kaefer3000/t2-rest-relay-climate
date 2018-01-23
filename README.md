@@ -1,5 +1,6 @@
 # t2-rest-relay-climate
 REST + Linked Data interface for a Tessel 2 with a [climate](https://tessel.io/modules#module-climate) and [relay module](https://tessel.io/modules#module-relay).
+So this gives you REST + Linked Data access to a temperature sensor, a humidity sensor, and two power switches.
 
 ## Set-up recipe
 * Require:
