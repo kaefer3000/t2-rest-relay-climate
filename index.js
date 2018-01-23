@@ -209,7 +209,7 @@ climateApp.route('/').get(function(request, response) {
           if (blubb.route.path.startsWith('/') && blubb.route.path.length > 1) {
             ret.add(
               new rdf.Triple(
-                new rdf.NamedNode(''),
+                new rdf.NamedNode('#module'),
                 new rdf.NamedNode('http://www.w3.org/ns/sosa/hosts'),
                 new rdf.NamedNode(blubb.route.path.substring(1) + "#sensor"))
             )
