@@ -106,6 +106,7 @@ var climateAppTemperatureBaseGraph = climateAppModuleBaseGraph.merge(
       new rdf.NamedNode('https://w3id.org/saref#TemperatureSensor'))
   ]
 );
+var bn = new rdf.BlankNode()
 // describing the temperature sensor
 climateApp.route("/temperature").get(function (request, response) {
 
@@ -116,8 +117,6 @@ climateApp.route("/temperature").get(function (request, response) {
         response.send(err);
         return;
       } else {
-        var bn = new rdf.BlankNode()
-        console.log(bn)
         response.sendGraph(
           climateAppTemperatureBaseGraph.merge(
             [
